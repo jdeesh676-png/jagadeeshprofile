@@ -6,104 +6,157 @@
   <title>Jagadeesh Kusupati - Glassmorphism</title>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Segoe UI", sans-serif;
-      color:#fff;
-      background: linear-gradient(135deg,#003d66,#000);
+      color: #fff;
+      background: linear-gradient(135deg, #003d66, #000);
       background-attachment: fixed;
-      scroll-behavior:smooth;
+      scroll-behavior: smooth;
     }
 
     /* ---------------- NAVBAR ---------------- */
     header {
-      position:sticky; top:0; z-index:1000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     nav {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
     }
+
     nav .logo {
-      font-size:1.6rem; font-weight:700; color:#00eaff;
-      text-shadow:0 0 6px #00eaff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #00eaff;
+      text-shadow: 0 0 6px #00eaff;
     }
-    nav ul { list-style:none; display:flex; gap:25px; }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
     nav a {
-      color:#fff; text-decoration:none; font-size:1rem;
-      padding:6px 12px; border-radius:8px; transition:0.3s;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
+
     nav a:hover {
-      background:rgba(255,255,255,0.08);
-      backdrop-filter:blur(10px);
-      box-shadow:0 0 10px rgba(0,238,255,0.5);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
     }
 
     /* ---------------- HERO ---------------- */
     #hero {
-      height:90vh; display:flex; flex-direction:column;
-      justify-content:center; align-items:center; text-align:center;
-      padding:20px; color:#e6ffff;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #e6ffff;
     }
+
     #hero h1 {
-      font-size:3rem; margin-bottom:15px;
-      text-shadow:0 0 20px rgba(0,238,255,0.7);
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px rgba(0, 238, 255, 0.7);
     }
+
     #hero p {
-      max-width:600px; font-size:1.2rem; opacity:.95;
+      max-width: 600px;
+      font-size: 1.2rem;
+      opacity: 0.95;
     }
+
     #hero button {
-      margin-top:35px; padding:14px 28px; font-size:1.1rem;
-      border:none; cursor:pointer; border-radius:10px;
-      color:#000; background:#00eaff; font-weight:600;
-      backdrop-filter:blur(8px);
-      box-shadow:0 0 12px rgba(0,238,255,0.8);
-      transition:0.3s;
+      margin-top: 35px;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      color: #000;
+      background: #00eaff;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 12px rgba(0, 238, 255, 0.8);
+      transition: 0.3s;
     }
+
     #hero button:hover {
-      transform:scale(1.06);
-      box-shadow:0 0 20px rgba(0,238,255,1);
+      transform: scale(1.06);
+      box-shadow: 0 0 20px rgba(0, 238, 255, 1);
     }
 
     /* ---------------- FEATURES ---------------- */
     #features {
-      padding:80px 20px;
+      padding: 80px 20px;
     }
+
     #features h2 {
-      font-size:2rem; text-align:center; margin-bottom:35px;
-      text-shadow:0 0 10px rgba(255,255,255,0.5);
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 35px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
+
     .feature-grid {
-      display:flex; justify-content:center; gap:25px;
-      flex-wrap:wrap;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
+
     .feature-card {
-      width:280px; padding:25px; text-align:center;
-      border-radius:18px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.3);
-      backdrop-filter:blur(12px);
-      box-shadow:0 0 12px rgba(0,238,255,0.3);
-      transition:0.3s;
-      font-size:1.1rem;
+      width: 280px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 12px rgba(0, 238, 255, 0.3);
+      transition: 0.3s;
+      font-size: 1.1rem;
     }
+
     .feature-card:hover {
-      transform:translateY(-8px);
-      box-shadow:0 0 25px rgba(0,238,255,0.7);
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0, 238, 255, 0.7);
     }
 
     /* ---------------- FOOTER ---------------- */
     footer {
-      margin-top:70px; padding:25px; text-align:center;
-      background:rgba(255,255,255,0.05);
-      border-top:1px solid rgba(255,255,255,0.2);
-      backdrop-filter:blur(10px);
+      margin-top: 70px;
+      padding: 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
     }
   </style>
 </head>
-
 
 <body>
 
@@ -119,14 +172,12 @@
     </nav>
   </header>
 
-
   <!-- HERO -->
   <section id="hero">
     <h1>Welcome to My Portfolio</h1>
     <p>I design & build modern web applications with clean UI and smooth UX.</p>
     <button onclick="scrollToSection('features')">✨ Explore Features</button>
   </section>
-
 
   <!-- FEATURES -->
   <section id="features">
@@ -141,57 +192,19 @@
     </div>
   </section>
 
-
   <!-- FOOTER -->
   <footer id="footer">
     © Jagadeesh Kusupati 2025
   </footer>
 
-
   <!-- Scroll Script -->
   <script>
     function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+      });
     }
   </script>
-<!-- NAVIGATION -->
-<nav class="navbar">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#" id="contactBtn">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- CONTACT FORM POPUP -->
-<div class="contact-modal" id="contactModal">
-  <div class="contact-content">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <h2>Contact Us</h2>
-
-    <form class="contact-form">
-      <label>Name :</label>
-      <input type="text" placeholder="Enter your name" required>
-
-      <label>Mobile Number :</label>
-      <input type="tel" placeholder="Enter your mobile number" required>
-
-      <label>Requirement :</label>
-      <textarea placeholder="Tell us your requirement" required></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-
-  </div>
-</div>
-<script>
-const contactBtn = document.getElementById("contactBtn");
-const contactModal = document.getElementById("contactModal");
-const closeModal = document.getElementById("closeModal");
-
-contactBtn.onclick = () => contactModal.style.display = "flex";
-closeModal.onclick = () => contactModal.style.display = "none";
-window.onclick = (e) => { if(e.target == contactModal) contactModal.style.display = "none"; }
-</script>
 
 </body>
 </html>
