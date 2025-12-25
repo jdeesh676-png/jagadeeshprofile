@@ -253,15 +253,29 @@ function getFormData() {
 
 /* ---- WhatsApp Submit ---- */
 function submitWhatsApp() {
+
   const data = getFormData();
 
   const msg = encodeURIComponent(
     `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
   );
 
-  const phone = "919490556392"; // +91 removed, kept numeric
+  const phone = "919490556392"; // your number
 
-  window.location.href = `https://wa.me/${phone}?text=${msg}`;
+  const mobileURL = `whatsapp://send?phone=${phone}&text=${msg}`;
+  const webURL = `https://wa.me/${phone}?text=${msg}`;
+
+  // Detect mobile
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    showSuccess("Opening WhatsApp…");
+    window.location.href = mobileURL;  // open WhatsApp APP
+  } 
+  else {
+    showSuccess("Please continue on your mobile WhatsApp");
+    window.open(webURL, "_blank"); // fallback
+  }
 }
 
 /* ---- Email Submit ---- */
@@ -273,12 +287,30 @@ function submitEmail() {
   const body = encodeURIComponent(
     `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
   );
-
+ showSuccess("Opening Email…");
   window.location.href =
     `mailto:kusupatijagadeesh@gmail.com?subject=${subject}&body=${body}`;
 }
 
 </script>
+<div id="successPopup"
+style="
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 22px;
+border-radius:14px;
+background:rgba(0,255,200,.25);
+border:1px solid rgba(0,255,200,.6);
+backdrop-filter:blur(10px);
+color:#fff;
+font-weight:600;
+letter-spacing:.5px;
+display:none;
+opacity:0;
+transition:.4s;">
+</div>
 
 </body>
 </html>
