@@ -18,20 +18,42 @@
     </nav>
   </header>
 
-  <section id="hero" class="hero">
-    <h1>Welcome to My Portfolio</h1>
-    <p>I build modern and responsive web applications.</p>
-    <button onclick="scrollToSection('features')">Explore Features</button>
-  </section>
+<!-- === FEATURES SECTION (Dark Theme) === -->
+<section id="features" class="features" style="background: linear-gradient(135deg, #1a1a1a, #000000); padding: 60px 20px; color: #ffffff;">
+  <h2 style="text-align:center; margin-bottom: 40px; font-size: 2rem;">🔥 Features</h2>
 
-  <section id="features" class="features">
-    <h2>Features</h2>
-    <div class="feature-grid">
-      <div class="feature-card">Responsive Design</div>
-      <div class="feature-card">Modern UI</div>
-      <div class="feature-card">Fast Performance</div>
+  <div class="feature-grid" 
+      style="display: flex; justify-content:center; gap: 25px; flex-wrap: wrap;">
+    
+    <div class="feature-card"
+      style="background: #111111; padding: 25px 40px; border-radius: 12px;
+             box-shadow: 0 0 15px #00eaff; font-size: 1.2rem; transition: 0.3s;
+             cursor:pointer;">
+      Responsive Design
     </div>
-  </section>
+
+    <div class="feature-card"
+      style="background: #111111; padding: 25px 40px; border-radius: 12px;
+             box-shadow: 0 0 15px #8b00ff; font-size: 1.2rem; transition: 0.3s;
+             cursor:pointer;">
+      Modern UI
+    </div>
+
+    <div class="feature-card"
+      style="background: #111111; padding: 25px 40px; border-radius: 12px;
+             box-shadow: 0 0 15px #ff007b; font-size: 1.2rem; transition: 0.3s;
+             cursor:pointer;">
+      Fast Performance
+    </div>
+
+  </div>
+</section>
+<style>
+  .feature-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00ffaa;
+  }
+</style>
 
   <footer id="footer">
     <p> © Jagadeesh Kusupati </p>
