@@ -183,6 +183,15 @@
 
   </div>
 </div>
+<script>
+const contactBtn = document.getElementById("contactBtn");
+const contactModal = document.getElementById("contactModal");
+const closeModal = document.getElementById("closeModal");
+
+contactBtn.onclick = () => contactModal.style.display = "flex";
+closeModal.onclick = () => contactModal.style.display = "none";
+window.onclick = (e) => { if(e.target == contactModal) contactModal.style.display = "none"; }
+</script>
 
 </body>
 </html>
