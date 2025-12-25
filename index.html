@@ -154,6 +154,35 @@
       document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }
   </script>
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#" id="contactBtn">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CONTACT FORM POPUP -->
+<div class="contact-modal" id="contactModal">
+  <div class="contact-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Contact Us</h2>
+
+    <form class="contact-form">
+      <label>Name :</label>
+      <input type="text" placeholder="Enter your name" required>
+
+      <label>Mobile Number :</label>
+      <input type="tel" placeholder="Enter your mobile number" required>
+
+      <label>Requirement :</label>
+      <textarea placeholder="Tell us your requirement" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+</div>
 
 </body>
 </html>
