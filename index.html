@@ -158,6 +158,75 @@
       cursor:pointer;
       box-shadow:0 0 12px rgba(0,238,255,0.8);
     }
+    /* SUCCESS TOAST */
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 22px;
+  border-radius:14px;
+  background:rgba(0,255,200,.2);
+  border:1px solid rgba(0,255,200,.6);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-weight:600;
+  display:none;
+  opacity:0;
+  transition:.4s;
+}
+
+/* THANK YOU OVERLAY */
+.thankyou{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* THANK YOU CARD */
+.thankyou-box{
+  width:320px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(12px);
+  color:#fff;
+  text-align:center;
+  animation:zoomIn .4s ease;
+}
+
+/* SUCCESS TICK */
+.tick{
+  font-size:48px;
+  color:#00ff9c;
+  margin-bottom:10px;
+  text-shadow:0 0 15px #00ffcc;
+}
+
+/* BUTTON */
+.thankyou-box button{
+  margin-top:10px;
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#00eaff;
+  color:#000;
+  font-weight:600;
+}
+
+/* POP ANIMATION */
+@keyframes zoomIn{
+  from{ transform:scale(.6); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
   </style>
 </head>
 
@@ -250,6 +319,8 @@ function getFormData() {
     requirement: document.getElementById("requirement").value,
   };
 }
+
+  
 /* SUCCESS POPUP */
 function showSuccess(msg) {
   const popup = document.getElementById("successPopup");
@@ -265,31 +336,82 @@ function showSuccess(msg) {
     setTimeout(() => popup.style.display = "none", 400);
   }, 2000);
 }
+  /* THANK YOU SCREEN */
+function showThankYou(){
+  document.getElementById("thankYouScreen").style.display="flex";
+}
+function closeThankYou(){
+  document.getElementById("thankYouScreen").style.display="none";
+}
+  /* GET FORM DATA */
+function getFormData(){
+  return{
+    name: document.getElementById("name").value.trim(),
+    mobile: document.getElementById("mobile").value.trim(),
+    requirement: document.getElementById("requirement").value.trim()
+  };
+}
+  /* FORM VALIDATION */
+function validateForm(data){
+
+  if(data.name === ""){
+    alert("Please enter your name");
+    return false;
+  }
+
+  if(data.mobile === "" || data.mobile.length < 10){
+    alert("Please enter valid mobile number");
+    return false;
+  }
+
+  if(data.requirement === ""){
+    alert("Please enter your requirement");
+    return false;
+  }
+
+  return true;
+}
 /* ---- WhatsApp Submit ---- */
 function submitWhatsApp() {
   const data = getFormData();
-
+  if(!validateForm(data)) return;
   const msg = encodeURIComponent(
     `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
   );
 
   const phone = "919490556392"; // +91 removed, kept numeric
+  const mobileURL=`whatsapp://send?phone=${phone}&text=${msg}`;
+  const webURL=`https://wa.me/${phone}?text=${msg}`;
 
+  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if(isMobile){
+    showSuccess("Opening WhatsApp…");
+    window.location.href=mobileURL;
+  } else {
+    showSuccess("Please continue on your mobile");
+    window.open(webURL,"_blank");
+  }
+
+  showThankYou();
+}
   window.location.href = `https://wa.me/${phone}?text=${msg}`;
 }
 
 /* ---- Email Submit ---- */
 function submitEmail() {
   const data = getFormData();
-
+   if(!validateForm(data)) return;
   const subject = encodeURIComponent("New Contact Request");
 
   const body = encodeURIComponent(
     `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
   );
+  showSuccess("Opening Email…");
 
-  window.location.href =
-    `mailto:kusupatijagadeesh@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href=
+  `mailto:kusupatijagadeesh@gmail.com?subject=${subject}&body=${body}`;
+
+  showThankYou();
 }
 
 </script>
@@ -310,6 +432,21 @@ letter-spacing:.5px;
 display:none;
 opacity:0;
 transition:.4s;">
+</div>
+<!-- SUCCESS TICK POPUP -->
+<div id="successPopup" class="toast">
+  ✔ Message sent successfully
+</div>
+
+<!-- THANK YOU SCREEN -->
+<div id="thankYouScreen" class="thankyou">
+  <div class="thankyou-box">
+    <div class="tick">✔</div>
+    <h2>Thank You</h2>
+    <p>We have received your request.</p>
+    <p>We will contact you soon.</p>
+    <button onclick="closeThankYou()">Close</button>
+  </div>
 </div>
 
 </body>
