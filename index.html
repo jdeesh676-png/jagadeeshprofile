@@ -250,7 +250,21 @@ function getFormData() {
     requirement: document.getElementById("requirement").value,
   };
 }
+/* SUCCESS POPUP */
+function showSuccess(msg) {
+  const popup = document.getElementById("successPopup");
+  popup.innerText = msg;
+  popup.style.display = "block";
 
+  setTimeout(() => {
+    popup.style.opacity = "1";
+  }, 20);
+
+  setTimeout(() => {
+    popup.style.opacity = "0";
+    setTimeout(() => popup.style.display = "none", 400);
+  }, 2000);
+}
 /* ---- WhatsApp Submit ---- */
 function submitWhatsApp() {
   const data = getFormData();
@@ -279,6 +293,24 @@ function submitEmail() {
 }
 
 </script>
+<div id="successPopup"
+style="
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 22px;
+border-radius:14px;
+background:rgba(0,255,200,.25);
+border:1px solid rgba(0,255,200,.6);
+backdrop-filter:blur(10px);
+color:#fff;
+font-weight:600;
+letter-spacing:.5px;
+display:none;
+opacity:0;
+transition:.4s;">
+</div>
 
 </body>
 </html>
