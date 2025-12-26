@@ -246,6 +246,75 @@
   from{ transform:scale(.6); opacity:0; }
   to{ transform:scale(1); opacity:1; }
 }
+    /* ===== ABOUT SECTION GLASS BANNER ===== */
+.about-sec{
+  padding:90px 40px;
+}
+
+.about-wrapper{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:40px;
+  align-items:center;
+  background:linear-gradient(145deg,
+    rgba(255,255,255,.08),
+    rgba(0,0,0,.45)
+  );
+  border:1px solid rgba(0,255,255,.35);
+  border-radius:22px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 24px rgba(0,255,255,.35);
+  padding:28px;
+}
+
+.about-image img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 0 25px rgba(0,255,255,.4);
+}
+
+.about-text h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+.about-tagline{
+  font-size:1.1rem;
+  opacity:.9;
+  margin-bottom:14px;
+}
+
+.about-desc{
+  opacity:.85;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.about-btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+  background:#00eaff;
+  box-shadow:0 0 18px rgba(0,255,255,1);
+  transition:.3s;
+}
+
+.about-btn:hover{
+  transform:scale(1.06);
+  box-shadow:0 0 28px rgba(0,255,255,1);
+}
+
+@media(max-width:820px){
+  .about-wrapper{
+    grid-template-columns:1fr;
+  }
+}
+
 /* ========== SCROLL ANIMATION ========== */
 
 .reveal {
@@ -282,6 +351,37 @@
   <h1>Welcome to My Portfolio</h1>
   <p>Freelance web developer based in Chennai.I design & build modern web applications with clean UI and smooth UX.</p>
   <button onclick="scrollToSection('features')">✨ Explore Features</button>
+</section>
+<section id="about" class="about-sec">
+
+  <div class="about-wrapper">
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61"
+           alt="Developer working">
+    </div>
+
+    <div class="about-text">
+
+      <h2>I'm Jagadeesh Kusupati</h2>
+
+      <p class="about-tagline">
+        Passionate about crafting clean, modern and high-performance web applications.
+      </p>
+
+      <p class="about-desc">
+        With hands-on experience in database administration, backend systems and
+        web application development — I focus on delivering reliable, scalable
+        and user-centric digital solutions. My approach blends performance,
+        structured coding, automation and smooth UI/UX experience.
+      </p>
+
+      <a href="#contact" class="about-btn">Contact Me</a>
+
+    </div>
+
+  </div>
+
 </section>
 
 <!-- FEATURES -->
