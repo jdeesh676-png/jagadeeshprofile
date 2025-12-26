@@ -388,32 +388,35 @@ function submitWhatsApp(){
   const d = getFormData();
   if(!validateForm(d)) return;
 
-  const phone = "919490556392"; // your number
-
   const msg = encodeURIComponent(
-`📩 New Contact Request
-
-👤 Name: ${d.name}
-📞 Mobile: ${d.mobile}
-
-📝 Requirement:
-${d.requirement}`
+`New Contact Request
+Name: ${d.name}
+Mobile: ${d.mobile}
+Requirement: ${d.requirement}`
   );
+
+  const phone = "919490556392";
 
   showSuccess("Sending via WhatsApp…");
   showThankYou();
 
-  // -------- SEND LEAD TO YOU --------
   setTimeout(()=>{
 
-    const whatsappLeadURL =
-      /Android|iPhone|iPad/i.test(navigator.userAgent)
-        ? `whatsapp://send?phone=${phone}&text=${msg}`
-        : `https://wa.me/${phone}?text=${msg}`;
+    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
+      // Mobile App
+      window.location.href =
+        `whatsapp://send?phone=${phone}&text=${msg}`;
+    }
+    else{
+      // Desktop Web
+      window.open(
+        `https://wa.me/${phone}?text=${msg}`,
+        "_blank"
+      );
+    }
 
-    window.open(whatsappLeadURL, "_blank");
-
-  }, 900);
+  }, 1200); // delay so popup displays
+}
 
 
 /* ---- Email Submit ---- */
