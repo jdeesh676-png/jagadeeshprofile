@@ -273,55 +273,68 @@
 </section>
 
 <!-- FEATURES -->
-<section id="features">
+<section id="features" class="features-sec">
+
   <h2>Features</h2>
 
-  <div class="feature-grid">
+  <p class="features-sub">
+    Built with performance, design quality and real-world usability in mind.
+  </p>
 
-    <div class="feature-card">
-      <div class="feature-title">Responsive UI</div>
-      <div class="feature-desc">
-        Works seamlessly across mobile, tablet & desktop.
-      </div>
+  <div class="features-grid">
+
+    <div class="feature-box">
+      <div class="feature-icon">📱</div>
+      <h3>Responsive UI</h3>
+      <p>
+        Optimized to work smoothly across mobiles, tablets and desktops.
+      </p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-title">Glassmorphism Design</div>
-      <div class="feature-desc">
-        Smooth frosted-glass translucent UI elements.
-      </div>
+    <div class="feature-box">
+      <div class="feature-icon">🧊</div>
+      <h3>Glassmorphism Design</h3>
+      <p>
+        Modern frosted-glass interface that gives a premium futuristic feel.
+      </p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-title">Smooth Animations</div>
-      <div class="feature-desc">
-        Subtle motion effects for premium user experience.
-      </div>
+    <div class="feature-box">
+      <div class="feature-icon">⚡</div>
+      <h3>Smooth Animations</h3>
+      <p>
+        Subtle transitions and motion effects for a delightful experience.
+      </p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-title">Mobile Friendly</div>
-      <div class="feature-desc">
-        Optimized for Android & iOS mobile browsing.
-      </div>
+    <div class="feature-box">
+      <div class="feature-icon">📱✔</div>
+      <h3>Mobile Friendly</h3>
+      <p>
+        Designed and tested with mobile-first experience as top priority.
+      </p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-title">Fast Performance</div>
-      <div class="feature-desc">
-        Lightweight design ensures faster page loading.
-      </div>
+    <div class="feature-box">
+      <div class="feature-icon">🚀</div>
+      <h3>Fast Performance</h3>
+      <p>
+        Lightweight code ensures faster load time and smooth navigation.
+      </p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-title">Modern Development</div>
-      <div class="feature-desc">
-        Built using modern UI & web development standards.
-      </div>
+    <div class="feature-box">
+      <div class="feature-icon">💻</div>
+      <h3>Modern Development</h3>
+      <p>
+        Built using clean structure, modular logic and best practices.
+      </p>
     </div>
 
   </div>
+
 </section>
+
 <section id="services" class="services">
   <h2>Services</h2>
 
@@ -512,6 +525,57 @@
 
 /* HOVER EFFECT */
 .service-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 28px rgba(0,255,255,.9);
+}
+/* -------- FEATURES NEW UI -------- */
+
+.features-sec{
+  padding:90px 40px;
+  text-align:center;
+}
+
+.features-sec h2{
+  font-size:2.3rem;
+  margin-bottom:8px;
+  text-shadow:0 0 10px rgba(255,255,255,.6);
+}
+
+.features-sub{
+  opacity:.9;
+  max-width:800px;
+  margin:auto;
+  margin-bottom:35px;
+}
+
+/* GRID */
+.features-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:28px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* CARDS */
+.feature-box{
+  padding:25px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(0,0,0,.45));
+  border:1px solid rgba(0,255,255,.35);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 18px rgba(0,255,255,.35);
+  transition:.35s ease;
+}
+
+/* ICON */
+.feature-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+/* HOVER */
+.feature-box:hover{
   transform:translateY(-8px) scale(1.03);
   box-shadow:0 0 28px rgba(0,255,255,.9);
 }
