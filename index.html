@@ -319,6 +319,79 @@
   transform:scale(1.06);
   box-shadow:0 0 28px rgba(0,255,255,1);
 }
+.about-bottom{
+  padding:90px 40px;
+}
+
+.about-bottom-box{
+  max-width:1100px;
+  margin:auto;
+  padding:28px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(0,0,0,.45));
+  border:1px solid rgba(0,255,255,.35);
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 24px rgba(0,255,255,.35);
+}
+
+.about-bottom-box h2{
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
+
+.about-bottom-box p{
+  opacity:.9;
+  line-height:1.65;
+  margin-bottom:10px;
+}
+
+.about-bottom-box h3{
+  margin-top:18px;
+  margin-bottom:10px;
+  font-size:1.4rem;
+}
+
+.about-skills{
+  margin-top:10px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.about-skills ul{
+  list-style:none;
+  padding-left:0;
+}
+
+.about-skills li{
+  padding:6px 0;
+  opacity:.9;
+}
+
+.about-closing{
+  margin-top:10px;
+  font-weight:600;
+}
+
+.about-bottom-btn{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 20px;
+  border-radius:12px;
+  background:#00eaff;
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 16px rgba(0,255,255,1);
+}
+.about-bottom-btn:hover{
+  transform:scale(1.06);
+}
+@media(max-width:820px){
+  .about-skills{
+    grid-template-columns:1fr;
+  }
+}
 
   </style>
 </head>
@@ -344,47 +417,69 @@
   <p>Freelance web developer based in Chennai.I design & build modern web applications with clean UI and smooth UX.</p>
   <button onclick="scrollToSection('features')">✨ Explore Features</button>
 </section>
-<section id="about" class="about-sec">
+<section id="aboutMe" class="about-bottom reveal">
 
-  <div class="about-card reveal">
+  <div class="about-bottom-box">
 
-    <h2 class="about-title">About Me</h2>
+    <h2>About Me</h2>
 
-    <p class="about-intro">
-      Hi — I'm <b>Jagadeesh Kusupati</b>, a backend & database professional
-      passionate about building reliable, scalable and high-performance
-      software systems.
+    <p>
+      I’m <strong>Jagadeesh Kusupati</strong>, a backend and database professional with a strong passion
+      for building reliable, scalable, and high-performance software systems. I specialize in designing
+      robust backend architectures and managing databases that power modern web applications.
     </p>
 
-    <p class="about-body">
-      I have hands-on experience in
-      <b>MongoDB administration, backend engineering,
-      automation workflows and production performance tuning.</b>
-      My work focuses on delivering stable, secure and efficient
-      solutions that solve real-world business problems.
+    <p>
+      I have hands-on experience in <strong>MongoDB administration</strong>, backend engineering,
+      automation workflows, and production performance tuning. My work focuses on delivering stable,
+      secure, and efficient solutions that solve real-world business challenges.
+      I enjoy optimizing queries, improving reliability, streamlining deployments,
+      and ensuring applications run smoothly at scale.
     </p>
 
-    <p class="about-body">
-      I enjoy optimizing queries, improving database reliability,
-      streamlining deployments and ensuring applications run smoothly at scale.
-      My approach blends <b>structured coding, monitoring,
-      troubleshooting and continuous improvement.</b>
+    <p>
+      My development approach blends <strong>structured coding, proactive monitoring,
+      troubleshooting and continuous improvement</strong>, enabling me to build systems that are
+      not only functional — but future-ready.
     </p>
 
-    <div class="about-list">
-      <span>✔ Database Administration & Query Optimization</span>
-      <span>✔ Backend Development & API Integrations</span>
-      <span>✔ Automation & Monitoring</span>
-      <span>✔ Performance, Stability & Scalability Focus</span>
+    <p>
+      As a freelancer, I provide <strong>end-to-end web solutions</strong>, helping businesses and
+      individuals turn ideas into fully-deployed digital products — from clean UI design to backend
+      development and deployment — with strong focus on quality and performance.
+    </p>
+
+    <h3>What I Do</h3>
+
+    <div class="about-skills">
+      <ul>
+        <li>✔ Database Administration & Query Optimization</li>
+        <li>✔ Backend Development & API Integrations</li>
+        <li>✔ Automation & Monitoring</li>
+        <li>✔ Performance, Stability & Scalability Optimization</li>
+      </ul>
+
+      <ul>
+        <li>✔ UI/UX Design & Full-Stack Web Development</li>
+        <li>✔ SEO, Branding & Digital Presence Support</li>
+        <li>✔ eCommerce Solutions & Secure Integrations</li>
+        <li>✔ Ongoing Support, Maintenance & Enhancements</li>
+      </ul>
     </div>
 
-    <button class="about-btn" onclick="openContact()">
+    <p class="about-closing">
+      I’m always excited to work on meaningful projects and help clients build software that is
+      efficient, scalable, and ready to grow.
+    </p>
+
+    <a href="#contact" id="aboutContactBtn" class="about-bottom-btn">
       Contact Me
-    </button>
+    </a>
 
   </div>
 
 </section>
+
 
 
 <!-- FEATURES -->
@@ -896,6 +991,11 @@ revealItems.forEach(item => observer.observe(item));
 function openContact(){
   document.getElementById("contactModal").style.display = "flex";
 }
+document.getElementById("aboutContactBtn")
+  .addEventListener("click", e=>{
+    e.preventDefault();
+    contactModal.style.display = "flex";
+  });
 
 </script>
 <div id="successPopup"
