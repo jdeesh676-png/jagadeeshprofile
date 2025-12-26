@@ -388,37 +388,35 @@ function submitWhatsApp(){
   const d = getFormData();
   if(!validateForm(d)) return;
 
-  const msg = encodeURIComponent(
-`New Contact Request
-Name: ${d.name}
-Mobile: ${d.mobile}
-Requirement: ${d.requirement}`
-  );
+  const phone = "919490556392"; // your number
 
-  const phone = "919490556392";
+  const msg = encodeURIComponent(
+`📩 New Contact Request
+
+👤 Name: ${d.name}
+📞 Mobile: ${d.mobile}
+
+📝 Requirement:
+${d.requirement}`
+  );
 
   showSuccess("Sending via WhatsApp…");
   showThankYou();
 
+  // -------- SEND LEAD TO YOU --------
   setTimeout(()=>{
 
-    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
-      // Mobile App
-      window.location.href =
-        `whatsapp://send?phone=${phone}&text=${msg}`;
-    }
-    else{
-      // Desktop Web
-      window.open(
-        `https://wa.me/${phone}?text=${msg}`,
-        "_blank"
-      );
-    }
+    const whatsappLeadURL =
+      /Android|iPhone|iPad/i.test(navigator.userAgent)
+        ? `whatsapp://send?phone=${phone}&text=${msg}`
+        : `https://wa.me/${phone}?text=${msg}`;
 
-  }, 1200); // delay so popup displays
-}
-/* -------- AUTO REPLY TO USER -------- */
+    window.open(whatsappLeadURL, "_blank");
 
+  }, 900);
+
+
+  // -------- AUTO-REPLY MESSAGE --------
   const reply = encodeURIComponent(
 `🤖 Auto-Reply from Jagadeesh
 
@@ -431,19 +429,17 @@ Have a great day 🙂`
 
   setTimeout(()=>{
 
-    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
-      window.location.href =
-        `whatsapp://send?text=${reply}`;
-    }
-    else{
-      window.open(
-        `https://wa.me/?text=${reply}`,
-        "_blank"
-      );
-    }
+    const whatsappReplyURL =
+      /Android|iPhone|iPad/i.test(navigator.userAgent)
+        ? `whatsapp://send?text=${reply}`
+        : `https://wa.me/?text=${reply}`;
+
+    window.open(whatsappReplyURL, "_blank");
 
   }, 1800);
-}
+
+}  // <-- function ends here safely
+
 
 /* ---- Email Submit ---- */
 function submitEmail(){
@@ -465,7 +461,6 @@ Requirement: ${d.requirement}`
       `mailto:kusupatijagadeesh@gmail.com?subject=New Contact Request&body=${body}`;
   }, 1200);
 }
-
 
 </script>
 <div id="successPopup"
