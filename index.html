@@ -417,7 +417,33 @@ Requirement: ${d.requirement}`
 
   }, 1200); // delay so popup displays
 }
+/* -------- AUTO REPLY TO USER -------- */
 
+  const reply = encodeURIComponent(
+`🤖 Auto-Reply from Jagadeesh
+
+Thank you for contacting us!
+
+We received your request and will get back to you shortly.
+
+Have a great day 🙂`
+  );
+
+  setTimeout(()=>{
+
+    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
+      window.location.href =
+        `whatsapp://send?text=${reply}`;
+    }
+    else{
+      window.open(
+        `https://wa.me/?text=${reply}`,
+        "_blank"
+      );
+    }
+
+  }, 1800);
+}
 
 /* ---- Email Submit ---- */
 function submitEmail(){
