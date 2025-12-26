@@ -259,6 +259,7 @@
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#features">Features</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#" id="contactBtn">Contact</a></li>
     </ul>
   </nav>
@@ -321,7 +322,65 @@
 
   </div>
 </section>
+<section id="services" class="services">
+  <h2>Services</h2>
 
+  <p class="services-sub">
+    I provide end-to-end web solutions — from UI design to deployment.
+  </p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">✏️</div>
+      <h3>Design</h3>
+      <p>
+        Creative and modern UI/UX layouts designed with user experience in mind.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <h3>Development</h3>
+      <p>
+        Full-stack web application development with clean and scalable code.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📢</div>
+      <h3>Marketing</h3>
+      <p>
+        SEO optimization and branding guidance to improve your digital presence.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💡</div>
+      <h3>Social Media</h3>
+      <p>
+        Social media strategy and content workflow setup to grow engagement.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛒</div>
+      <h3>eCommerce</h3>
+      <p>
+        Online store development with secure checkout integrations.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛠️</div>
+      <h3>Help & Support</h3>
+      <p>
+        Ongoing support, maintenance and feature enhancements.
+      </p>
+    </div>
+
+  </div>
+</section>
 <!-- CONTACT FORM -->
 <div class="contact-modal" id="contactModal">
   <div class="contact-content">
@@ -403,6 +462,58 @@
 .social:hover{
   transform:scale(1.12) translateY(-4px);
   box-shadow:0 0 25px rgba(0,255,255,1);
+}
+
+  /* -------- SERVICES SECTION -------- */
+
+.services{
+  padding:90px 40px;
+  text-align:center;
+}
+
+.services h2{
+  font-size:2.3rem;
+  margin-bottom:8px;
+  text-shadow:0 0 10px rgba(255,255,255,.6);
+}
+
+.services-sub{
+  opacity:.9;
+  max-width:800px;
+  margin:auto;
+  margin-bottom:35px;
+}
+
+/* GRID */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:28px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* CARDS */
+.service-card{
+  padding:25px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(0,0,0,.45));
+  border:1px solid rgba(0,255,255,.35);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 18px rgba(0,255,255,.35);
+  transition:.35s ease;
+}
+
+/* ICON */
+.service-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+/* HOVER EFFECT */
+.service-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 28px rgba(0,255,255,.9);
 }
 
 </style>
