@@ -302,14 +302,23 @@ function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
-/* Modal open / close */
+/* ---- CONTACT MODAL ---- */
 const contactBtn = document.getElementById("contactBtn");
 const contactModal = document.getElementById("contactModal");
 const closeModal = document.getElementById("closeModal");
 
-contactBtn.onclick = () => contactModal.style.display = "flex";
-closeModal.onclick = () => contactModal.style.display = "none";
-window.onclick = (e) => { if (e.target === contactModal) contactModal.style.display = "none"; };
+contactBtn.addEventListener("click", (e)=>{
+  e.preventDefault();
+  contactModal.style.display = "flex";
+});
+
+closeModal.onclick = ()=> contactModal.style.display = "none";
+
+window.onclick = (e)=>{
+  if(e.target === contactModal){
+    contactModal.style.display = "none";
+  }
+};
 
 /* Get form values */
 function getFormData() {
@@ -322,20 +331,22 @@ function getFormData() {
 
   
 /* SUCCESS POPUP */
-function showSuccess(msg) {
-  const popup = document.getElementById("successPopup");
-  popup.innerText = msg;
-  popup.style.display = "block";
+function showSuccess(msg){
+  const p = document.getElementById("successPopup");
 
-  setTimeout(() => {
-    popup.style.opacity = "1";
-  }, 20);
+  p.innerText = msg;
+  p.style.display = "block";
 
-  setTimeout(() => {
-    popup.style.opacity = "0";
-    setTimeout(() => popup.style.display = "none", 400);
-  }, 2000);
+  requestAnimationFrame(()=>{
+    p.style.opacity = "1";
+  });
+
+  setTimeout(()=>{
+    p.style.opacity = "0";
+    setTimeout(()=> p.style.display="none", 300);
+  }, 2200);
 }
+
   /* THANK YOU SCREEN */
 function showThankYou(){
   document.getElementById("thankYouScreen").style.display="flex";
@@ -372,47 +383,63 @@ function validateForm(data){
   return true;
 }
 /* ---- WhatsApp Submit ---- */
-function submitWhatsApp() {
-  const data = getFormData();
-  if(!validateForm(data)) return;
+function submitWhatsApp(){
+
+  const d = getFormData();
+  if(!validateForm(d)) return;
+
   const msg = encodeURIComponent(
-    `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
+`New Contact Request
+Name: ${d.name}
+Mobile: ${d.mobile}
+Requirement: ${d.requirement}`
   );
 
-  const phone = "919490556392"; // +91 removed, kept numeric
-  const mobileURL=`whatsapp://send?phone=${phone}&text=${msg}`;
-  const webURL=`https://wa.me/${phone}?text=${msg}`;
+  const phone = "919490556392";
 
-  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if(isMobile){
-    showSuccess("Opening WhatsApp…");
-    window.location.href=mobileURL;
-  } else {
-    showSuccess("Please continue on your mobile");
-    window.open(webURL,"_blank");
-  }
-
+  showSuccess("Sending via WhatsApp…");
   showThankYou();
+
+  setTimeout(()=>{
+
+    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
+      // Mobile App
+      window.location.href =
+        `whatsapp://send?phone=${phone}&text=${msg}`;
+    }
+    else{
+      // Desktop Web
+      window.open(
+        `https://wa.me/${phone}?text=${msg}`,
+        "_blank"
+      );
+    }
+
+  }, 1200); // delay so popup displays
 }
-  window.location.href = `https://wa.me/${phone}?text=${msg}`;
-}
+
 
 /* ---- Email Submit ---- */
-function submitEmail() {
-  const data = getFormData();
-   if(!validateForm(data)) return;
-  const subject = encodeURIComponent("New Contact Request");
+function submitEmail(){
+
+  const d = getFormData();
+  if(!validateForm(d)) return;
 
   const body = encodeURIComponent(
-    `Name: ${data.name}\nMobile: ${data.mobile}\nRequirement: ${data.requirement}`
+`Name: ${d.name}
+Mobile: ${d.mobile}
+Requirement: ${d.requirement}`
   );
-  showSuccess("Opening Email…");
 
-  window.location.href=
-  `mailto:kusupatijagadeesh@gmail.com?subject=${subject}&body=${body}`;
-
+  showSuccess("Opening email…");
   showThankYou();
+
+  setTimeout(()=>{
+    window.location.href =
+      `mailto:kusupatijagadeesh@gmail.com?subject=New Contact Request&body=${body}`;
+  }, 1200);
 }
+
 
 </script>
 <div id="successPopup"
