@@ -354,16 +354,24 @@
 </section>
 <section id="about" class="about-sec">
 
-  <div class="about-wrapper">
+  <div class="about-wrapper reveal">
 
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61"
-           alt="Developer working">
+    <div class="about-photo-wrap">
+      <div class="glow-ring"></div>
+
+      <!-- YOUR PHOTO -->
+      <img src=""C:\Users\Jaga Deesh\Downloads\ChatGPT Image Dec 26, 2025, 03_43_33 PM.png""
+           alt="Jagadeesh Kusupati"
+           class="about-photo">
     </div>
 
     <div class="about-text">
 
       <h2>I'm Jagadeesh Kusupati</h2>
+
+      <div class="role-badge">
+        🛠 MongoDB • Backend • Automation • Performance Tuning
+      </div>
 
       <p class="about-tagline">
         Passionate about crafting clean, modern and high-performance web applications.
@@ -376,7 +384,8 @@
         structured coding, automation and smooth UI/UX experience.
       </p>
 
-      <a href="#contact" class="about-btn">Contact Me</a>
+      <!-- CONTACT BUTTON OPENS MODAL -->
+      <button class="contact-btn" onclick="openContact()">Contact Me</button>
 
     </div>
 
@@ -725,7 +734,18 @@ window.onclick = (e)=>{
     contactModal.style.display = "none";
   }
 };
+function openContact(){
+  document.getElementById("contactModal").style.display = "flex";
+}
 
+/* existing reveal logic stays */
+const revealItems = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting) entry.target.classList.add("show");
+ });
+},{threshold:.3});
+revealItems.forEach(i=>observer.observe(i));
 /* Get form values */
 function getFormData() {
   return {
