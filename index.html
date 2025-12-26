@@ -327,7 +327,88 @@
   opacity: 1;
   transform: translateY(0);
 }
+    /* 🔥 NEW — ABOUT PHOTO ENHANCED */
+    .about-photo-wrap{
+      position:relative;
+      width:360px;
+      height:420px;
+      border-radius:22px;
+      overflow:hidden;
+      margin:auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      backdrop-filter:blur(10px);
+    }
 
+    .about-photo-wrap::before{
+      content:"";
+      position:absolute;
+      inset:-30px;
+      border-radius:30px;
+      background:radial-gradient(circle,
+      rgba(0,255,255,.5),
+      rgba(0,100,150,.2),
+      transparent);
+      filter:blur(18px);
+      opacity:.85;
+    }
+
+    .glow-ring{
+      position:absolute;
+      inset:-10px;
+      border-radius:24px;
+      border:1.5px solid rgba(0,255,255,.6);
+      box-shadow:0 0 25px rgba(0,255,255,.6);
+    }
+
+    .about-photo{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:18px;
+    }
+
+    .about-photo-wrap:hover{
+      transform:perspective(900px) rotateY(4deg) rotateX(2deg) scale(1.02);
+      transition:.4s ease;
+    }
+
+    /* NEW — ROLE BADGE */
+    .role-badge{
+      display:inline-block;
+      padding:10px 16px;
+      margin:6px 0 12px 0;
+      border-radius:14px;
+      background:rgba(0,255,255,.12);
+      border:1px solid rgba(0,255,255,.45);
+      box-shadow:0 0 14px rgba(0,255,255,.4);
+      font-size:.92rem;
+    }
+
+    /* NEW — CONTACT BTN STYLE */
+    .contact-btn{
+      padding:12px 20px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      background:#00eaff;
+      color:#003344;
+      box-shadow:0 0 18px rgba(0,255,255,.7);
+    }
+
+    .contact-btn:hover{
+      transform:scale(1.05);
+    }
+
+    @media(max-width:820px){
+      .about-wrapper{ grid-template-columns:1fr; }
+    }
+
+    /* Scroll reveal */
+    .reveal{ opacity:0; transform:translateY(40px); transition:.7s ease; }
+    .reveal.show{ opacity:1; transform:translateY(0); }
   </style>
 </head>
 
