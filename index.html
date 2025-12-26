@@ -283,6 +283,49 @@
   <p>Freelance web developer based in Chennai.I design & build modern web applications with clean UI and smooth UX.</p>
   <button onclick="scrollToSection('features')">✨ Explore Features</button>
 </section>
+<section id="about" class="about-sec">
+
+  <div class="about-wrapper reveal">
+
+    <div class="about-text">
+
+      <h2>About Me</h2>
+
+      <p class="about-tagline">
+        Hi — I'm <b>Jagadeesh Kusupati</b>, a backend & database professional
+        passionate about building reliable, scalable and high-performance software systems.
+      </p>
+
+      <p class="about-desc">
+        I have hands-on experience in <b>MongoDB administration, backend engineering,
+        automation workflows and production performance tuning</b>.  
+        My work focuses on delivering stable, secure and efficient solutions
+        that solve real-world business problems.
+      </p>
+
+      <p class="about-desc">
+        I enjoy optimizing queries, improving database reliability,
+        streamlining deployment processes and ensuring applications run smoothly at scale.
+        My approach combines structured coding, monitoring, troubleshooting
+        and continuous improvement mindset.
+      </p>
+
+      <div class="about-highlights">
+        <p>✔ Database Administration & Query Optimization</p>
+        <p>✔ Backend Development & API Integrations</p>
+        <p>✔ Automation & Monitoring</p>
+        <p>✔ Performance, Stability & Scalability Focus</p>
+      </div>
+
+      <button class="about-btn" onclick="openContact()">
+        Contact Me
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- FEATURES -->
 <section id="features" class="features-sec">
@@ -592,6 +635,15 @@
   transform:translateY(-8px) scale(1.03);
   box-shadow:0 0 28px rgba(0,255,255,.9);
 }
+.about-highlights p{
+  margin-top:6px;
+  opacity:.9;
+}
+
+.about-text h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
 
 </style>
 
@@ -759,6 +811,9 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 revealItems.forEach(item => observer.observe(item));
+function openContact(){
+  document.getElementById("contactModal").style.display = "flex";
+}
 
 </script>
 <div id="successPopup"
