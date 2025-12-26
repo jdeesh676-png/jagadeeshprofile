@@ -283,55 +283,56 @@
 
   <div class="features-grid">
 
-    <div class="feature-box">
-      <div class="feature-icon">📱</div>
-      <h3>Responsive UI</h3>
-      <p>
-        Optimized to work smoothly across mobiles, tablets and desktops.
-      </p>
-    </div>
-
-    <div class="feature-box">
-      <div class="feature-icon">🧊</div>
-      <h3>Glassmorphism Design</h3>
-      <p>
-        Modern frosted-glass interface that gives a premium futuristic feel.
-      </p>
-    </div>
-
-    <div class="feature-box">
-      <div class="feature-icon">⚡</div>
-      <h3>Smooth Animations</h3>
-      <p>
-        Subtle transitions and motion effects for a delightful experience.
-      </p>
-    </div>
-
-    <div class="feature-box">
-      <div class="feature-icon">📱✔</div>
-      <h3>Mobile Friendly</h3>
-      <p>
-        Designed and tested with mobile-first experience as top priority.
-      </p>
-    </div>
-
-    <div class="feature-box">
-      <div class="feature-icon">🚀</div>
-      <h3>Fast Performance</h3>
-      <p>
-        Lightweight code ensures faster load time and smooth navigation.
-      </p>
-    </div>
-
-    <div class="feature-box">
-      <div class="feature-icon">💻</div>
-      <h3>Modern Development</h3>
-      <p>
-        Built using clean structure, modular logic and best practices.
-      </p>
-    </div>
-
+  <div class="feature-box reveal">
+    <div class="feature-icon">📱</div>
+    <h3>Responsive UI</h3>
+    <p>
+      Optimized to work smoothly across mobiles, tablets and desktops.
+    </p>
   </div>
+
+  <div class="feature-box reveal">
+    <div class="feature-icon">🧊</div>
+    <h3>Glassmorphism Design</h3>
+    <p>
+      Modern frosted-glass interface that gives a premium futuristic feel.
+    </p>
+  </div>
+
+  <div class="feature-box reveal">
+    <div class="feature-icon">⚡</div>
+    <h3>Smooth Animations</h3>
+    <p>
+      Subtle transitions and motion effects for a delightful experience.
+    </p>
+  </div>
+
+  <div class="feature-box reveal">
+    <div class="feature-icon">📱✔</div>
+    <h3>Mobile Friendly</h3>
+    <p>
+      Designed and tested with mobile-first experience as top priority.
+    </p>
+  </div>
+
+  <div class="feature-box reveal">
+    <div class="feature-icon">🚀</div>
+    <h3>Fast Performance</h3>
+    <p>
+      Lightweight code ensures faster load time and smooth navigation.
+    </p>
+  </div>
+
+  <div class="feature-box reveal">
+    <div class="feature-icon">💻</div>
+    <h3>Modern Development</h3>
+    <p>
+      Built using clean structure, modular logic and best practices.
+    </p>
+  </div>
+
+</div>
+
 
 </section>
 
@@ -579,6 +580,18 @@
   transform:translateY(-8px) scale(1.03);
   box-shadow:0 0 28px rgba(0,255,255,.9);
 }
+/* ========== SCROLL ANIMATION ========== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 </style>
 
@@ -732,6 +745,20 @@ Requirement: ${d.requirement}`
       `mailto:kusupatijagadeesh@gmail.com?subject=New Contact Request&body=${body}`;
   }, 1200);
 }
+
+  /* ---- Scroll Reveal Animation ---- */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.3 });
+
+revealItems.forEach(item => observer.observe(item));
 
 </script>
 <div id="successPopup"
