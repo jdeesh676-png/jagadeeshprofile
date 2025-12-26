@@ -246,6 +246,18 @@
   from{ transform:scale(.6); opacity:0; }
   to{ transform:scale(1); opacity:1; }
 }
+/* ========== SCROLL ANIMATION ========== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
   </style>
 </head>
@@ -579,18 +591,6 @@
 .feature-box:hover{
   transform:translateY(-8px) scale(1.03);
   box-shadow:0 0 28px rgba(0,255,255,.9);
-}
-/* ========== SCROLL ANIMATION ========== */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: .7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 </style>
