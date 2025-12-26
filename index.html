@@ -416,31 +416,6 @@ ${d.requirement}`
   }, 900);
 
 
-  // -------- AUTO-REPLY MESSAGE --------
-  const reply = encodeURIComponent(
-`🤖 Auto-Reply from Jagadeesh
-
-Thank you for contacting us!
-
-We received your request and will get back to you shortly.
-
-Have a great day 🙂`
-  );
-
-  setTimeout(()=>{
-
-    const whatsappReplyURL =
-      /Android|iPhone|iPad/i.test(navigator.userAgent)
-        ? `whatsapp://send?text=${reply}`
-        : `https://wa.me/?text=${reply}`;
-
-    window.open(whatsappReplyURL, "_blank");
-
-  }, 1800);
-
-}  // <-- function ends here safely
-
-
 /* ---- Email Submit ---- */
 function submitEmail(){
 
