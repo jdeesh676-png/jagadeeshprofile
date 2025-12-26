@@ -246,75 +246,6 @@
   from{ transform:scale(.6); opacity:0; }
   to{ transform:scale(1); opacity:1; }
 }
-    /* ===== ABOUT SECTION GLASS BANNER ===== */
-.about-sec{
-  padding:90px 40px;
-}
-
-.about-wrapper{
-  max-width:1150px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:40px;
-  align-items:center;
-  background:linear-gradient(145deg,
-    rgba(255,255,255,.08),
-    rgba(0,0,0,.45)
-  );
-  border:1px solid rgba(0,255,255,.35);
-  border-radius:22px;
-  backdrop-filter:blur(14px);
-  box-shadow:0 0 24px rgba(0,255,255,.35);
-  padding:28px;
-}
-
-.about-image img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 0 25px rgba(0,255,255,.4);
-}
-
-.about-text h2{
-  font-size:2.2rem;
-  margin-bottom:10px;
-}
-
-.about-tagline{
-  font-size:1.1rem;
-  opacity:.9;
-  margin-bottom:14px;
-}
-
-.about-desc{
-  opacity:.85;
-  line-height:1.6;
-  margin-bottom:20px;
-}
-
-.about-btn{
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:600;
-  color:#000;
-  background:#00eaff;
-  box-shadow:0 0 18px rgba(0,255,255,1);
-  transition:.3s;
-}
-
-.about-btn:hover{
-  transform:scale(1.06);
-  box-shadow:0 0 28px rgba(0,255,255,1);
-}
-
-@media(max-width:820px){
-  .about-wrapper{
-    grid-template-columns:1fr;
-  }
-}
-
 /* ========== SCROLL ANIMATION ========== */
 
 .reveal {
@@ -327,88 +258,7 @@
   opacity: 1;
   transform: translateY(0);
 }
-    /* 🔥 NEW — ABOUT PHOTO ENHANCED */
-    .about-photo-wrap{
-      position:relative;
-      width:360px;
-      height:420px;
-      border-radius:22px;
-      overflow:hidden;
-      margin:auto;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      backdrop-filter:blur(10px);
-    }
 
-    .about-photo-wrap::before{
-      content:"";
-      position:absolute;
-      inset:-30px;
-      border-radius:30px;
-      background:radial-gradient(circle,
-      rgba(0,255,255,.5),
-      rgba(0,100,150,.2),
-      transparent);
-      filter:blur(18px);
-      opacity:.85;
-    }
-
-    .glow-ring{
-      position:absolute;
-      inset:-10px;
-      border-radius:24px;
-      border:1.5px solid rgba(0,255,255,.6);
-      box-shadow:0 0 25px rgba(0,255,255,.6);
-    }
-
-    .about-photo{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:18px;
-    }
-
-    .about-photo-wrap:hover{
-      transform:perspective(900px) rotateY(4deg) rotateX(2deg) scale(1.02);
-      transition:.4s ease;
-    }
-
-    /* NEW — ROLE BADGE */
-    .role-badge{
-      display:inline-block;
-      padding:10px 16px;
-      margin:6px 0 12px 0;
-      border-radius:14px;
-      background:rgba(0,255,255,.12);
-      border:1px solid rgba(0,255,255,.45);
-      box-shadow:0 0 14px rgba(0,255,255,.4);
-      font-size:.92rem;
-    }
-
-    /* NEW — CONTACT BTN STYLE */
-    .contact-btn{
-      padding:12px 20px;
-      border-radius:12px;
-      border:none;
-      cursor:pointer;
-      font-weight:700;
-      background:#00eaff;
-      color:#003344;
-      box-shadow:0 0 18px rgba(0,255,255,.7);
-    }
-
-    .contact-btn:hover{
-      transform:scale(1.05);
-    }
-
-    @media(max-width:820px){
-      .about-wrapper{ grid-template-columns:1fr; }
-    }
-
-    /* Scroll reveal */
-    .reveal{ opacity:0; transform:translateY(40px); transition:.7s ease; }
-    .reveal.show{ opacity:1; transform:translateY(0); }
   </style>
 </head>
 
@@ -432,46 +282,6 @@
   <h1>Welcome to My Portfolio</h1>
   <p>Freelance web developer based in Chennai.I design & build modern web applications with clean UI and smooth UX.</p>
   <button onclick="scrollToSection('features')">✨ Explore Features</button>
-</section>
-<section id="about" class="about-sec">
-
-  <div class="about-wrapper reveal">
-
-    <div class="about-photo-wrap">
-      <div class="glow-ring"></div>
-
-      <!-- YOUR PHOTO -->
-      <img src=""C:\Users\Jaga Deesh\Downloads\ChatGPT Image Dec 26, 2025, 03_43_33 PM.png""
-           alt="Jagadeesh Kusupati"
-           class="about-photo">
-    </div>
-
-    <div class="about-text">
-
-      <h2>I'm Jagadeesh Kusupati</h2>
-
-      <div class="role-badge">
-        🛠 MongoDB • Backend • Automation • Performance Tuning
-      </div>
-
-      <p class="about-tagline">
-        Passionate about crafting clean, modern and high-performance web applications.
-      </p>
-
-      <p class="about-desc">
-        With hands-on experience in database administration, backend systems and
-        web application development — I focus on delivering reliable, scalable
-        and user-centric digital solutions. My approach blends performance,
-        structured coding, automation and smooth UI/UX experience.
-      </p>
-
-      <!-- CONTACT BUTTON OPENS MODAL -->
-      <button class="contact-btn" onclick="openContact()">Contact Me</button>
-
-    </div>
-
-  </div>
-
 </section>
 
 <!-- FEATURES -->
@@ -815,18 +625,7 @@ window.onclick = (e)=>{
     contactModal.style.display = "none";
   }
 };
-function openContact(){
-  document.getElementById("contactModal").style.display = "flex";
-}
 
-/* existing reveal logic stays */
-const revealItems = document.querySelectorAll(".reveal");
-const observer = new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting) entry.target.classList.add("show");
- });
-},{threshold:.3});
-revealItems.forEach(i=>observer.observe(i));
 /* Get form values */
 function getFormData() {
   return {
