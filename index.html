@@ -68,29 +68,49 @@
     }
 
     /* ---------------- FEATURES ---------------- */
-    #features { padding:80px 20px; }
-    #features h2 {
-      font-size:2rem; text-align:center; margin-bottom:35px;
-      text-shadow:0 0 10px rgba(255,255,255,0.5);
-    }
-    .feature-grid {
-      display:flex; justify-content:center; gap:25px;
-      flex-wrap:wrap;
-    }
-    .feature-card {
-      width:280px; padding:25px; text-align:center;
-      border-radius:18px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.3);
-      backdrop-filter:blur(12px);
-      box-shadow:0 0 12px rgba(0,238,255,0.3);
-      transition:0.3s;
-      font-size:1.1rem;
-    }
-    .feature-card:hover {
-      transform:translateY(-8px);
-      box-shadow:0 0 25px rgba(0,238,255,0.7);
-    }
+  /* FEATURES SECTION IMPROVED */
+#features{
+  padding:90px 40px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:28px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* GLASS CARDS */
+.feature-card{
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  background:linear-gradient(145deg,rgba(0,255,255,.06),rgba(0,0,0,.4));
+  border:1px solid rgba(0,255,255,.35);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 14px rgba(0,255,255,.35);
+  transition:.35s ease;
+}
+
+/* CARD TITLE */
+.feature-title{
+  font-size:1.2rem;
+  margin-bottom:6px;
+  color:#eaffff;
+}
+
+/* DESCRIPTION */
+.feature-desc{
+  opacity:.8;
+  font-size:.95rem;
+}
+
+/* HOVER MOTION */
+.feature-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 30px rgba(0,255,255,.8);
+}
 
     /* ---------------- FOOTER ---------------- */
     footer {
@@ -254,13 +274,51 @@
 <!-- FEATURES -->
 <section id="features">
   <h2>Features</h2>
+
   <div class="feature-grid">
-    <div class="feature-card">Responsive UI</div>
-    <div class="feature-card">Glassmorphism Design</div>
-    <div class="feature-card">Smooth Animations</div>
-    <div class="feature-card">Mobile Friendly</div>
-    <div class="feature-card">Fast Performance</div>
-    <div class="feature-card">Modern Development</div>
+
+    <div class="feature-card">
+      <div class="feature-title">Responsive UI</div>
+      <div class="feature-desc">
+        Works seamlessly across mobile, tablet & desktop.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Glassmorphism Design</div>
+      <div class="feature-desc">
+        Smooth frosted-glass translucent UI elements.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Smooth Animations</div>
+      <div class="feature-desc">
+        Subtle motion effects for premium user experience.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Mobile Friendly</div>
+      <div class="feature-desc">
+        Optimized for Android & iOS mobile browsing.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Fast Performance</div>
+      <div class="feature-desc">
+        Lightweight design ensures faster page loading.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Modern Development</div>
+      <div class="feature-desc">
+        Built using modern UI & web development standards.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -289,7 +347,67 @@
     </form>
   </div>
 </div>
+<!-- SOCIAL FLOAT DOCK -->
+<div class="social-dock">
 
+  <a href="https://www.linkedin.com/in/jagadeesh-kusupati"
+     target="_blank" class="social linkedin">
+     in
+  </a>
+
+  <a href="https://github.com/jdeesh676-png"
+     target="_blank" class="social github">
+     <span>G</span>
+  </a>
+<style>
+
+.social-dock{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:999;
+}
+
+/* GLASS BUTTON */
+.social{
+  width:48px;
+  height:48px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:14px;
+  font-weight:800;
+  font-size:20px;
+  text-decoration:none;
+  color:#fff;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(0,255,255,.5);
+  box-shadow:0 0 18px rgba(0,255,255,.6);
+  transition:.3s;
+}
+
+/* LINKEDIN */
+.linkedin{
+  background:rgba(0,119,181,.4);
+}
+
+/* GITHUB */
+.github{
+  background:rgba(255,255,255,.15);
+}
+
+/* HOVER GLOW */
+.social:hover{
+  transform:scale(1.12) translateY(-4px);
+  box-shadow:0 0 25px rgba(0,255,255,1);
+}
+
+</style>
+
+</div>
 <!-- FOOTER -->
 <footer id="footer">
   © Jagadeesh Kusupati 2025
